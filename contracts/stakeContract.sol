@@ -7,7 +7,7 @@ contract StakeContract {
         string STACKING_RECEIPT_ID;
         uint256 STACKED_GAIN;
         uint256 UNSTACKED_GAIN;
-        uint256 NET_STACKED_GAIN;
+        int256 NET_STACKED_GAIN;
     }
 
     stakeInfo[] public _stakeInfo;
@@ -17,7 +17,7 @@ contract StakeContract {
         string memory _STACKING_RECEIPT_ID,
         uint256 _STACKED_GAIN,
         uint256 _UNSTACKED_GAIN,
-        uint256 _NET_STACKED_GAIN
+        int256 _NET_STACKED_GAIN
     ) public {
         _stakeInfo.push(
             stakeInfo(

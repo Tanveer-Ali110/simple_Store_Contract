@@ -1,8 +1,6 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-import "hardhat/console.sol";
-
 contract ProductContract {
     struct ProductInfo {
         string BUYER_GCUID;
@@ -11,7 +9,7 @@ contract ProductContract {
         string DESCRIPTION; // Manufactured car batteries for ev
         string VERIFIERS_GCUID;
         string CONFLICT_RESOLVERS_GCUID;
-        // string ATTACHED_TRANSACTIONS_IDS;
+        string[] ATTACHED_TRANSACTIONS_IDS;
     }
 
     ProductInfo[] public _productInfo;
@@ -22,18 +20,20 @@ contract ProductContract {
         uint256 _TAG_PRICE,
         string memory _DESCRIPTION,
         string memory _VERIFIERS_GCUID,
-        string memory _CONFLICT_RESOLVERS_GCUID
+        string memory _CONFLICT_RESOLVERS_GCUID,
+        string[] memory _ATTACHED_TRANSACTIONS_IDS
     ) public {
-        _productInfo.push(
-            ProductInfo(
-                _BUYER_GCUID,
-                _SELLER_GCUID,
-                _TAG_PRICE,
-                _DESCRIPTION,
-                _VERIFIERS_GCUID,
-                _CONFLICT_RESOLVERS_GCUID
-            )
+        ProductInfo memory data = ProductInfo(
+            _BUYER_GCUID,
+            _SELLER_GCUID,
+            _TAG_PRICE,
+            _DESCRIPTION,
+            _VERIFIERS_GCUID,
+            _CONFLICT_RESOLVERS_GCUID,
+            _ATTACHED_TRANSACTIONS_IDS
         );
+
+        _productInfo.push(data);
     }
 
     function setProductInfo() public view returns (ProductInfo[] memory) {

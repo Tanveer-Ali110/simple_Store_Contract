@@ -7,7 +7,7 @@ contract WalletContract {
         string WALLET_RECEIPT_ID;
         uint256 UPGAIN;
         uint256 DWONGAIN;
-        uint256 NETGAIN;
+        int256 NETGAIN;
     }
 
     walletInfo[] public _walletInfo;
@@ -17,7 +17,7 @@ contract WalletContract {
         string memory _WALLET_RECEIPT_ID,
         uint256 _UPGAIN,
         uint256 _DWONGAIN,
-        uint256 _NETGAIN
+        int256 _NETGAIN
     ) public {
         _walletInfo.push(
             walletInfo(
