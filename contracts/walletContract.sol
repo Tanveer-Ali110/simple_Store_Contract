@@ -11,6 +11,7 @@ contract WalletContract {
     }
 
     walletInfo[] public _walletInfo;
+    event wallet_data(uint256 _indexed, address indexed _sender);
 
     function setWalletInfo(
         string memory _USER_WALLET_ID,
@@ -28,6 +29,7 @@ contract WalletContract {
                 _NETGAIN
             )
         );
+        emit wallet_data(_productInfo.length - 1, msg.sender);
     }
 
     function getWalletInfo() public view returns (walletInfo[] memory) {

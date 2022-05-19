@@ -13,6 +13,7 @@ contract ProductContract {
     }
 
     ProductInfo[] public _productInfo;
+    event Product_data(uint256 _indexed, address indexed _sender);
 
     function setProductInfo(
         string memory _BUYER_GCUID,
@@ -32,11 +33,11 @@ contract ProductContract {
             _CONFLICT_RESOLVERS_GCUID,
             _ATTACHED_TRANSACTIONS_IDS
         );
-
         _productInfo.push(data);
+        emit Product_data(_productInfo.length - 1, msg.sender);
     }
 
-    function setProductInfo() public view returns (ProductInfo[] memory) {
+    function getProductInfo() public view returns (ProductInfo[] memory) {
         return _productInfo;
     }
 }

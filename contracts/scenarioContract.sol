@@ -11,6 +11,7 @@ contract ScenarioContract {
     }
 
     scenarioFundsInfo[] public _scenarioFundsInfo;
+    event fund_data(uint256 _indexed, address indexed _sender);
 
     function setFundsInfo(
         string memory _USER_GCUID,
@@ -28,6 +29,7 @@ contract ScenarioContract {
                 _ADDED
             )
         );
+        emit fund_data(_productInfo.length - 1, msg.sender);
     }
 
     function getFundsInfo() public view returns (scenarioFundsInfo[] memory) {

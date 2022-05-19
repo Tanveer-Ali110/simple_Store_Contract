@@ -14,6 +14,7 @@ contract UserContract {
     }
 
     UserInfo[] public _userInfo;
+    event user_data(uint256 _indexed, address indexed _sender);
 
     function setUserInfo(
         string memory _USER_GCUID,
@@ -37,6 +38,7 @@ contract UserContract {
                 _USER_STACKING_ID
             )
         );
+        emit user_data(_productInfo.length - 1, msg.sender);
     }
 
     function getUserInfo() public view returns (UserInfo[] memory) {
