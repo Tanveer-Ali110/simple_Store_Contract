@@ -38,7 +38,7 @@ contract UserContract {
                 _USER_STACKING_ID
             )
         );
-        emit user_data(_productInfo.length - 1, msg.sender);
+        emit user_data(_userInfo.length - 1, msg.sender);
     }
 
     function getUserInfo() public view returns (UserInfo[] memory) {

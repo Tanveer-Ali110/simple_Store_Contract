@@ -29,7 +29,7 @@ contract WalletContract {
                 _NETGAIN
             )
         );
-        emit wallet_data(_productInfo.length - 1, msg.sender);
+        emit wallet_data(_walletInfo.length - 1, msg.sender);
     }
 
     function getWalletInfo() public view returns (walletInfo[] memory) {

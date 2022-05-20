@@ -29,7 +29,7 @@ contract ScenarioContract {
                 _ADDED
             )
         );
-        emit fund_data(_productInfo.length - 1, msg.sender);
+        emit fund_data(_scenarioFundsInfo.length - 1, msg.sender);
     }
 
     function getFundsInfo() public view returns (scenarioFundsInfo[] memory) {

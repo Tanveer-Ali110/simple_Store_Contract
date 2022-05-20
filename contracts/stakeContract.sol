@@ -29,7 +29,7 @@ contract StakeContract {
                 _NET_STACKED_GAIN
             )
         );
-        emit stake_data(_productInfo.length - 1, msg.sender);
+        emit stake_data(_stakeInfo.length - 1, msg.sender);
     }
 
     function getStakeInfo() public view returns (stakeInfo[] memory) {
